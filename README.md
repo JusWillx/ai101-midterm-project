@@ -26,7 +26,7 @@
 - `AI-USE-NOTE.md` — specific AI contribution and human verification responsibilities.
 - `ISSUE-AND-PR.md` — ready-to-use GitHub issue, acceptance criteria, PR description, and steps.
 - `DEMO-SCRIPT.md` — five-minute walkthrough.
-- `evidence/` — screenshot instructions; add your actual captured images.
+- `evidence/` — screenshot instructions; 
 
 ## Known limitations and risks
 - Network access is needed to load car photographs. External URLs may stop working; gallery fallback appears if a photo cannot load.
