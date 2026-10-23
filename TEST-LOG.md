@@ -1,38 +1,26 @@
-# Test Log — VRT Garage Stage 2.2
+# VRT Garage — Midterm Test Log
 
-Test date for source checks: **2026-10-22**. Environment: project files in a local container; Node.js source syntax check and Python source inspection. Browser navigation was blocked in this environment. These source checks **do not demonstrate UI behavior**.
+## Testing context
+The student confirmed that the following five tests were personally performed and all passed, using the VRT Garage website in a browser. The exact test date, browser version and screenshot filenames have not yet been provided. Results are student-reported, not independently reproduced by ChatGPT.
 
-## A. Executed source checks (actual results)
+## Five completed browser tests
 
-| ID | Test | Actual observed outcome | Result |
-|---|---|---|---|
-| S1 | JavaScript parses without a syntax error | Condition met in current source | PASS |
-| S2 | Three vehicle selector buttons are present | Condition met in current source | PASS |
-| S3 | Three vehicle datasets are defined | Condition met in current source | PASS |
-| S4 | Shelby gallery has front and rear entries | Condition met in current source | PASS |
-| S5 | Photo gallery controls have matching HTML and JS hooks | Condition met in current source | PASS |
-| S6 | Image-loading fallback is implemented | Condition met in current source | PASS |
-| S7 | Local CSS and JavaScript references resolve | Condition met in current source | PASS |
-| S8 | Navigation has documented section targets | Condition met in current source | PASS |
+| ID | Test steps | Expected outcome | Actual outcome reported | Status |
+|---|---|---|---|---|
+| B1 | Select Shelby GT500 and click **Next Photo** | Show the next image | Next Shelby photo displayed | PASS — student reported |
+| B2 | Click **Previous Photo** | Return to previous image | Previous Shelby photo displayed | PASS — student reported |
+| B3 | Click the left and right overlay arrows | Cycle through Shelby images | Both navigation arrows worked | PASS — student reported |
+| B4 | Choose Nissan GT-R, then Toyota Supra | Display each car's image | Both selected cars displayed their respective images | PASS — student reported |
+| B5 | Switch from other vehicles back to the Shelby | Gallery resets to photo 1 | Shelby gallery returned to the first picture | PASS — student reported |
 
-## B. Required manual browser tests — do these and fill in observations
+## Edge case and known limitation
+The gallery loads vehicle photos from Wikimedia Commons over the internet. If the connection is unavailable or a remote photo fails to load, the image can fail to display. The code includes an image-unavailable fallback. This is a **documented limitation identified through source review**, not a completed offline test. To strengthen evaluation evidence, test with browser Developer Tools → Network → Offline, select an uncached image and record the observed result. Do not call this test passed unless it is actually performed.
 
-Use Chrome/Edge with Live Server. For each, note **date, browser, actual output, pass/fail, and screenshot filename**. An unchecked result is not a pass.
+## Source and development review
+The gallery navigation change was tracked through [Issue #1](https://github.com/JusWillx/ai101-midterm-project/issues/1) and [Pull Request #2](https://github.com/JusWillx/ai101-midterm-project/pull/2). An initial change inadvertently removed existing event listeners; the error was identified in code review and the student corrected it before merging the PR.
 
-| ID | Steps | Expected | Actual observation | Result | Screenshot |
-|---|---|---|---|---|---|
-| B1 | Open site; click **Showroom** | Scroll to showroom | [enter] | NOT RUN | [file] |
-| B2 | Choose Nissan GT-R, then Supra | Name, category, image and credit update | [enter] | NOT RUN | [file] |
-| B3 | Select Shelby, click Next | Image counter moves from 1/2 to 2/2; rear photo appears | [enter] | NOT RUN | [file] |
-| B4 | Click front thumbnail then rear thumbnail | Appropriate photo and active thumbnail update | [enter] | NOT RUN | [file] |
-| B5 | Select GT-R/Supra then Shelby | Single-photo cars hide gallery arrows; Shelby returns to 1/2 | [enter] | NOT RUN | [file] |
-| B6 | On a phone-sized browser window, open navigation | Menu opens; section link navigates and closes menu | [enter] | NOT RUN | [file] |
-| B7 — edge | In browser DevTools Network, choose Offline; switch photo | A clear image-not-available fallback appears, no fatal crash | [enter] | NOT RUN | [file] |
-
-**Suggested DevTools steps for B7:** F12 → Network tab → throttling → Offline → choose a *different, not-yet-cached* photo. Disable cache if needed. Turn Online back on afterward. If the expected failure doesn't occur due to caching, state that honestly and document the limitation you investigated.
-
-### Previously reported user check (separate from this test session)
-During Stage 2, the student stated that switching among the three cars changed their pictures and descriptions correctly. This is a user-reported result; no screenshot was supplied, and the later gallery version needs retesting.
-
-### Evidence preservation
-Save captures in `evidence/`, e.g., `showroom-selected-shelby.png`, `showroom-rear.png`, `gtr-single-photo.png`, `offline-fallback.png`. Screenshots are not present in the supplied ZIP unless you add them yourself.
+## Supporting evidence still to attach
+- Before screenshot: original gallery without labeled Next Photo control.
+- After screenshot: working gallery with Next Photo control.
+- Screenshot: merged GitHub pull request.
+- Record the actual test date, browser, and screenshots when available.
