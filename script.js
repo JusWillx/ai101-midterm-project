@@ -171,8 +171,7 @@ function selectShowroomVehicle(id) {
   showGalleryPhoto(0);
 }
 document.querySelector('#gallery-prev').addEventListener('click', () => showGalleryPhoto(currentPhotoIndex - 1));
-document.querySelector('#gallery-next').addEventListener('click', () => showGalleryPhoto(currentPhotoIndex + 1));
-document.querySelector('#gallery-previous-label').addEventListener('click', () => showGalleryPhoto(currentPhotoIndex - 1));
+document.querySelector('#gallery-next-label').addEventListener('click', () => showGalleryPhoto(currentPhotoIndex + 1));
 document.addEventListener('keydown', event => {
   const active = document.activeElement;
   if (active && (active.closest('.gallery-controls') || active.closest('.gallery-thumbnails'))) {
