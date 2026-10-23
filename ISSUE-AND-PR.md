@@ -19,8 +19,8 @@
 **Testing:** The student reported passing five browser checks. See `TEST-LOG.md` for details. An independent external reviewer was not reported; do not imply an outside approval.
 
 ## Evidence to attach
-- `evidence/before-gallery.png` — previous gallery, without Next Photo text control.
-- `evidence/after-gallery.png` — updated gallery with both labeled controls.
-- `evidence/merged-pr.png` — screenshot of PR #2 showing merged status.
+- `evidence/No Next Button.png` — previous gallery, without Next Photo text control.
+- `evidence/Next Button.png` — updated gallery with both labeled controls.
+- `evidence/Merged Pull request.png` — screenshot of PR #2 showing merged status.
 
 If screenshots use different filenames, update these paths to match the uploaded files.
