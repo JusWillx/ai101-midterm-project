@@ -1,33 +1,23 @@
 # AI Use Note — VRT Garage
 
-**Tool:** ChatGPT (OpenAI conversational AI). **Use type:** Development assistance, not a live API feature.
+**AI tool:** ChatGPT (OpenAI). **Role:** AI-assisted development, not a live AI feature in the running website.
 
-## Purpose
-I used AI to brainstorm a professional car-customization website, narrow the first version to a feasible prototype, draft and revise HTML/CSS/JavaScript, plan gallery behavior and draft documentation and tests. The resulting prototype is not AI-powered at runtime.
+## Purpose and contribution
+I used ChatGPT to brainstorm the concept, plan a manageable first version, develop the HTML, CSS, and JavaScript, organize a three-car showroom, improve the Shelby photo gallery, and prepare README and testing materials.
 
-## Representative real prompts from project development
+## Representative prompts from my work
 - “Let's build Stage 1 of VRT Garage. Give me the complete index.html, style.css, and script.js code for the professional homepage we planned, featuring the black Shelby GT500-style Mustang, with step-by-step VS Code instructions.”
 - “Let's start Stage 2 of VRT Garage and build the interactive car showroom. Keep my existing Stage 1 website design, update the necessary code files, explain the code changes, and help me prepare the project for the midterm rubric.”
 - “actually before i do that could you make cars have more than one picture so they can have a better view of each car? like when dealerships post their cars online”
 - “its functioing but i dont like how they arre all different pictures can you try and make it to where its the same car just in different angles”
-- “i think this is a good point for my prototype section now i need you to complete the other things for the rubric i gave so i can hand in”
 
-## AI-created contributions
-- Project layout, responsive styling, navigation behaviors, three-vehicle JavaScript dataset, Shelby photo navigation and image fallback.
-- First-draft README, issue/PR checklist, evaluation scripts, and demo outline.
+## My decisions, revisions, and review
+I chose the name VRT Garage and selected a black Shelby Mustang theme. I wanted both a dream-car configurator and an upload-your-own-car option in the long term, but kept this prototype focused on browsing three vehicles and a small matched Shelby gallery. After seeing mismatched photos of the same models, I requested that the prototype use two Shelby views from one display and one image for each of the other two cars.
 
-## My decisions / revisions (student: review and personalize)
-- Chose the name **VRT Garage** and selected a black Shelby-style Mustang as the homepage feature.
-- Requested the three-vehicle interactive showroom.
-- Requested dealership-style views, then identified the mismatch between images of different cars.
-- Chose a simpler prototype: two front/rear Shelby display photos, and one photo per GT-R and Supra.
-- **Add anything you personally changed in the code here:** [describe file, change, and reason or write “No direct code edits; I reviewed and tested AI-generated code.”]
+For [Issue #1](https://github.com/JusWillx/ai101-midterm-project/issues/1), I created a branch and [Pull Request #2](https://github.com/JusWillx/ai101-midterm-project/pull/2) to add the labeled Next Photo button. Code review identified that two existing JavaScript gallery event listeners had accidentally been removed. I restored the four gallery navigation listeners in `script.js`, committed that fix, and merged the pull request after testing.
 
-## Verification / evidence
-- I previously reported that the three-car showroom correctly changed images and descriptions when tested locally.
-- Automated **source-level** checks are recorded in `TEST-LOG.md`; they do not replace browser testing.
-- **Before submission, add actual browser-test dates and screenshots** in `TEST-LOG.md` and `evidence/`; don't report unperformed checks as passed.
-- **Before submission, add your actual GitHub issue/PR links** in `ISSUE-AND-PR.md`.
+## Verification
+I opened the website in my browser and reported five passing tests: Next Photo, Previous Photo, overlay arrows, changing between GT-R and Supra, and returning to Shelby with the gallery reset. These results are recorded in `TEST-LOG.md`. My exact browser version and test date were not recorded in the conversation; I should add those when available. Screenshots should be attached in the repository `evidence/` folder.
 
-## Limitations of AI assistance
-AI code can have logical errors or depend on unstable third-party images. AI-generated words about copyrights, vehicle identity, or functionality require checking. This project cannot edit uploaded car photos, visualize real-world mods, or validate parts compatibility, and it does not use an AI image-editing API. I am responsible for checking, understanding, testing, and accurately presenting the result.
+## Limitations and responsibility
+AI-assisted code still needed review and correction, as shown by the gallery listener regression. Remote vehicle photos need an internet connection and might fail to load. The prototype does not generate modifications, upload personal car photos, save builds, or use a live AI API. The offline image-failure case has been identified as a limitation, not reported as a completed browser test. I remain responsible for explaining and checking the work.
